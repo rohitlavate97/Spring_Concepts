@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  demo-service:
+    image: weather-service:1.0
+    restart: always
+    build: .
+    ports:
+      - "9091:9091"

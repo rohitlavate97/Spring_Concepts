@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-service
+spec:
+  selector:
+    matchLabels:
+      app: weather-service
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: weather-service
+    spec:
+      containers:
+        - name: weather-service
+          image: weather-service:1.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9091

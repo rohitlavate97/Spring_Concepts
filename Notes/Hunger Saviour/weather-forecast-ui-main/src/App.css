@@ -1,0 +1,60 @@
+.weather-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+.search-bar .form-control {
+  margin-right: 10px; /* Space between input and button */
+  outline: none !important; /* Remove focus outline */
+  box-shadow: none; /* Remove any shadow if applicable */
+}
+
+.search-bar .btn {
+  display: flex;
+  align-items: center;
+}
+
+.btn {
+  background-color: #3acdeb !important;
+  color: #fff;
+  border: none !important;
+  border-radius: 5px !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.btn:hover {
+  background-color: #189ab4 !important; /* Tomato on hover */
+}
+
+/* App.css */
+
+/* Container for the heading */
+h1 {
+  text-transform: uppercase; /* Capitalizes all letters */
+  animation: fadeIn 2s ease-in-out; /* Apply animation */
+  background: linear-gradient(
+    to right,
+    #3acdeb,
+    #48b1bf
+  ); /* Gradient background */
+  -webkit-background-clip: text; /* Clipping the background to the text */
+  -webkit-text-fill-color: transparent; /* Makes the text color transparent to show gradient */
+}
+
+/* Keyframes for the fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px); /* Move up on start */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Set to its final position */
+  }
+}

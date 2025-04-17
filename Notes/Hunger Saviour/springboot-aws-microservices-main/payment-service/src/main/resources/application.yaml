@@ -1,0 +1,22 @@
+server:
+  port: 6060
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/paymentsdbtemp?createDatabaseIfNotExist=true
+    username: root
+    password: Danvi@02
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  cloud:
+    aws:
+      credentials:
+        access-key: 
+        secret-key: 
+      region:
+        static: ap-south-1
+      sqs:
+        endpoint: https://sqs.ap-south-1.amazonaws.com/637423367455

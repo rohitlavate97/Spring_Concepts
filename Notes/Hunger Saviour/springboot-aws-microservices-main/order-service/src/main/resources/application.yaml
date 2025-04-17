@@ -1,0 +1,17 @@
+server:
+  port: 6061
+spring:
+  application:
+    name: order-service
+  cloud:
+    aws:
+      credentials:
+        access-key: 
+        secret-key: 
+      region:
+        static: ap-south-1
+      sqs:
+        endpoint: https://sqs.ap-south-1.amazonaws.com/637423367455
+      dynamodb:
+        endpoint: http://dynamodb.ap-south-1.amazonaws.com
+        region: ap-south-1
