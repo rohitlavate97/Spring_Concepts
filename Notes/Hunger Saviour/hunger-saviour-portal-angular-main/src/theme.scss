@@ -1,0 +1,119 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-primary: (
+    50 : #fff0e3,
+    100 : #fed9ba,
+    200 : #fec08c,
+    300 : #fda65e,
+    400 : #fc933c,
+    500 : #fc8019,
+    600 : #fc7816,
+    700 : #fb6d12,
+    800 : #fb630e,
+    900 : #fa5008,
+    A100 : #ffffff,
+    A200 : #fff3ef,
+    A400 : #ffcdbc,
+    A700 : #ffbaa2,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-accent: (
+    50 : #ebebeb,
+    100 : #cecece,
+    200 : #aeadad,
+    300 : #8d8c8c,
+    400 : #747474,
+    500 : #5c5b5b,
+    600 : #545353,
+    700 : #4a4949,
+    800 : #414040,
+    900 : #302f2f,
+    A100 : #f48f8f,
+    A200 : #ef6161,
+    A400 : #ff1e1e,
+    A700 : #ff0404,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #ffffff,
+        A700 : #ffffff,
+    )
+);
+
+/* For use in src/lib/core/theming/_palette.scss */
+$md-warn: (
+    50 : #fdf8e6,
+    100 : #fbedc2,
+    200 : #f8e199,
+    300 : #f5d470,
+    400 : #f3cb51,
+    500 : #ec3814,
+    600 : #ef8b2d,
+    700 : #edb426,
+    800 : #ebac1f,
+    900 : #e79f13,
+    A100 : #ffffff,
+    A200 : #fff4e2,
+    A400 : #ffe2af,
+    A700 : #ffd896,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$hunger-saviour-ui-primary: mat.define-palette($md-primary);
+$hunger-saviour-ui-accent: mat.define-palette($md-accent, A100);
+$hunger-saviour-ui-warn: mat.define-palette($md-warn);
+
+$hunger-saviour-ui-theme: mat.define-light-theme((
+  color: (
+    primary: $hunger-saviour-ui-primary,
+    accent: $hunger-saviour-ui-accent,
+    warn: $hunger-saviour-ui-warn,
+  )
+));
+
+@include mat.all-component-themes($hunger-saviour-ui-theme);

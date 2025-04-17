@@ -1,0 +1,24 @@
+.mat-mdc-card-header{
+  align-self: center;
+}
+
+.mat-mdc-card {
+  width: 500px;
+}
+
+.ratingicon{
+  color: $rating-color !important;
+}
+
+.deleteicon{
+  color: $delete-color;
+}
+
+.mat-mdc-snack-bar-container .mat-mdc-button.mat-mdc-snack-bar-action:not(:disabled) {
+  color: $primary-color !important;
+  font-weight: 900 !important;
+}
+
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  font-weight: 700 !important;
+}

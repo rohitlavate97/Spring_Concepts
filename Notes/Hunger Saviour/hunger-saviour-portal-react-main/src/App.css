@@ -1,0 +1,34 @@
+body {
+  margin: 0; 
+  font-family: 'circular'; 
+  
+  &::-webkit-scrollbar {
+      width: 10px; /* Set your desired width for the scrollbar */
+  }
+  &::-webkit-scrollbar-thumb {
+      background-color: darken(#FC8019, 5); /* Set your desired color for the scrollbar thumb */
+      border-radius: 8px;
+  }
+}
+
+.menu-image {
+  width: 100%; /* Ensure the image takes full width of its container */
+  height: 150px; /* Set a fixed height */
+  object-fit: cover; /* Ensure the image covers the entire area */
+  object-position: top; /* Align the image to the top */
+}
+
+.custom-scroll {
+  max-height: 50px !important; /* Set your desired max-height */
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    width: 3px !important; /* Set your desired width for the scrollbar */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #FC8019 !important; /* Set your desired color for the scrollbar thumb */
+  }
+  &::-webkit-scrollbar-track {
+    background-color: lighten(#FC8019, 30) !important;
+  }
+}
+

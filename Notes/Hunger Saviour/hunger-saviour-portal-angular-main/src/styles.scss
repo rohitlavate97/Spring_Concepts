@@ -1,0 +1,20 @@
+/* Importing Bootstrap SCSS file. */
+@import './styles/variables.scss';
+@import './styles/app-styles.scss';
+@import 'bootstrap/scss/bootstrap';
+@import './styles/bootstrap-override.scss';
+@import './styles/material-override.scss';
+
+html, body { height: 100%; }
+body {
+    margin: 0; 
+    font-family: 'circular'; 
+    overflow-y: inherit;
+    &::-webkit-scrollbar {
+        width: 10px; /* Set your desired width for the scrollbar */
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: darken($color: $primary-color, $amount: 5); /* Set your desired color for the scrollbar thumb */
+        border-radius: 8px;
+    }
+}

@@ -1,0 +1,14 @@
+.restaurant-card{
+  width: 250px;
+  cursor: pointer;
+}
+
+.card-image-container{
+  img{
+    object-position: top;
+  }
+}
+
+.no-shadow{
+  box-shadow: none !important;
+}

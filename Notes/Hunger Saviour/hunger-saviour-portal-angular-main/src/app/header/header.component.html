@@ -1,0 +1,12 @@
+<mat-toolbar color="accent" class="shadow fw-bold">
+  <span class="logo"><mat-icon>restaurant</mat-icon></span>
+  <span class="logoname">Hunger Saviour</span>
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <a *ngIf="authService.isLoggedIn()" routerLink="/dashboard/orders" routerLinkActive="active-link"><mat-icon>info</mat-icon>Orders</a>
+    <a *ngIf="authService.isLoggedIn()" routerLink="/dashboard/restaurants" routerLinkActive="active-link"><mat-icon>restaurant_menu</mat-icon>Restaurants</a>
+    <a *ngIf="!authService.isLoggedIn()" routerLink="/auth/login" routerLinkActive="active-link"><mat-icon>person</mat-icon>Sign In</a>
+    <a *ngIf="authService.isLoggedIn()" routerLink="/auth/login" routerLinkActive="active-link" (click)="authService.logout()"><mat-icon>exit_to_app</mat-icon>Sign Out</a>
+    <a *ngIf="authService.isLoggedIn()" routerLink="/dashboard/cart" routerLinkActive="active-link"><mat-icon>shopping_cart</mat-icon>Cart</a>
+  </div>
+</mat-toolbar>

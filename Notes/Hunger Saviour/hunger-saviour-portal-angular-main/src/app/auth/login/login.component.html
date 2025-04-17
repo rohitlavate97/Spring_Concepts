@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <mat-card class="shadow" [@slideInFromLeft]="animationState">
+      <mat-card-header>
+        <div mat-card-avatar class="header-image"></div>
+        <mat-card-title class="fw-bold text-muted">Hunger Saviour Portal</mat-card-title>
+        <mat-card-subtitle class="text-center"><small>Delivering Happiness</small></mat-card-subtitle>
+      </mat-card-header>
+    <mat-card-content>
+      <div class="flex-column">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mt-2">
+            <p class="fw-bold errorMessage" *ngIf="this.auth.errorMessage$ | async as error">***{{error}}</p>
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Enter Username</mat-label>
+              <input matInput formControlName="username" placeholder="Placeholder">
+              <mat-icon matPrefix>email</mat-icon>
+              <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+                Username is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="mt-3">
+            <mat-form-field class="w-100" appearance="outline">
+              <mat-label>Enter Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" placeholder="Placeholder">
+              <mat-icon matPrefix>lock</mat-icon>
+              <mat-error class="mt-1" *ngIf="loginForm.get('password')?.hasError('required')">
+                Password is required
+              </mat-error>
+              <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+          </div>
+          <div class="mt-2">
+            <button type="submit" class="btn btn-primary float-end fw-bold">Login To Portal</button>
+          </div>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

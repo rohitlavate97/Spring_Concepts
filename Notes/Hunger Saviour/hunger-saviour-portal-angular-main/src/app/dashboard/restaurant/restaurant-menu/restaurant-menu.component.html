@@ -1,0 +1,104 @@
+<ng-container *ngIf="rest$ | async as restaurant">
+  <div *ngIf="restaurant.menuItems">
+    <div
+      *ngFor="let menu of restaurant.menuItems"
+      class="container d-flex flex-wrap align-items-center justify-content-center my-2"
+      [@itemAnimation]
+    >
+      <div class="col-lg-7">
+        <div class="d-flex flex-column">
+          <div class="fw-bolder">{{ menu.itemName }}</div>
+          <div class="fw-bolder">{{ menu.price }}</div>
+          <div class="d-flex flex-row fw-bold">
+            <mat-icon class="ratingicon">stars</mat-icon
+            >{{ restaurant?.rating }}
+          </div>
+          <div class="text-secondary custom-scroll m-1">
+            {{ menu.description | slice : 0 : 150 }}
+
+            <!-- Use *ngIf to show "show more" link only if description length exceeds a certain limit -->
+            <ng-container *ngIf="menu.description.length > 100">
+              <span *ngIf="!menu.showFullDescription">
+                <!-- "Show more" link -->
+                <a
+                  href="javascript:void(0)"
+                  (click)="menu.showFullDescription = true"
+                  class="show fw-bold"
+                >
+                  Show more</a
+                >
+              </span>
+              <span *ngIf="menu.showFullDescription">
+                <!-- Full description -->
+                {{ menu.description }}
+                <!-- "Show less" link -->
+                <a
+                  href="javascript:void(0)"
+                  (click)="menu.showFullDescription = false"
+                  class="show fw-bold"
+                >
+                  Show less</a
+                >
+              </span>
+            </ng-container>
+          </div>
+          <div class="text-secondary fw-bold">{{ menu.menuType }}</div>
+        </div>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="card-image-container position-relative">
+          <img
+            mat-card-image
+            [src]="menu.menuImageUrl"
+            alt="{{ menu.menuImageUrl }}"
+          />
+        </div>
+      </div>
+
+      <div class="col-lg-2">
+        <mat-card class="restaurant-card no-shadow">
+          <div
+            class="card-image-container d-flex flex-wrap align-items-center justify-content-center"
+          >
+            <div *ngIf="menu.quantity > 0">
+              <!-- Quantity control -->
+              <div class="quantity-control d-flex align-items-center">
+                <button
+                  (click)="decreaseQuantity(menu)"
+                  mat-raised-button
+                  color="primary"
+                  class="fw-bold text-light m-2"
+                >
+                  -
+                </button>
+                <div class="quantity fw-bold text-muted">
+                  {{ menu.quantity }}
+                </div>
+                <button
+                  (click)="increaseQuantity(menu)"
+                  mat-raised-button
+                  color="primary"
+                  class="fw-bold text-light m-2"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            <ng-container *ngIf="menu.quantity === 0 || !menu.quantity">
+              <!-- Add to Cart button -->
+              <button
+                (click)="addToCart(menu,restaurant.restaurantId)"
+                mat-raised-button
+                color="primary"
+                class="fw-bold text-light"
+              >
+                Add To Cart
+              </button>
+            </ng-container>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</ng-container>

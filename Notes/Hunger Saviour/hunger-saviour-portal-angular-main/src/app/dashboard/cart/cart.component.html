@@ -1,0 +1,45 @@
+
+<ng-container *ngIf="cartItems && cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="d-flex flex-wrap align-items-center justify-content-center my-3">
+        <div class="card-image-container col-lg-2 mx-2">
+            <img mat-card-image [src]="item.menuImageUrl" alt="{{ item.menuImageUrl }}" />
+        </div>
+        <div class="col-lg-2 d-flex flex-column align-items-left">
+            <div class="fw-bolder text-truncate">{{ item.itemName }}</div>
+            <div class="d-flex flex-row fw-bold">
+                <mat-icon class="ratingicon">stars</mat-icon>4.2
+            </div>
+            <div class="fw-bolder">₹{{ item.price }}</div>
+        </div>
+        <div class="item-quantity col-lg-2">
+            <button mat-raised-button color="primary" class="fw-bold text-light m-2" (click)="decreaseQuantity(item)">
+                -
+            </button>
+            <span class="quantity">{{ item.quantity }}</span>
+            <button mat-raised-button color="primary" class="fw-bold text-light m-2" (click)="increaseQuantity(item)">
+                +
+            </button>
+        </div>
+        <div class="item-price fw-bold col-lg-2">
+            Total Price: Rs.{{ calculateItemPrice(item).toFixed(2) }}
+        </div>
+
+        <div class="item-actions col-lg-2">
+            <button mat-icon-button (click)="removeFromCart(item)">
+                <mat-icon class="deleteicon">delete</mat-icon>
+            </button>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button mat-raised-button color="primary" class="fw-bold text-light m-2" (click)="payNow()">
+            Checkout
+        </button>
+    </div>
+</ng-container>
+<ng-template #emptyCart>
+    <div class="d-flex align-items-center justify-content-center mt-5 pt-4">
+        <mat-card class="restaurant-card shadow">
+            <img mat-card-image [src]="'https://www.vhv.rs/dpng/d/521-5212497_empty-cart-hd-png-download.png'" alt="Restaurant Photo">
+        </mat-card>
+    </div>
+</ng-template>
